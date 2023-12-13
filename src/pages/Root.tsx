@@ -1,5 +1,5 @@
 import BannerSection from "../components/BannerSection";
-import DevicesSection from "../components/DevicesSection";
+// import DevicesSection from "../components/DevicesSection";
 import TVSection from "../components/TVSection";
 
 const root = () => {
@@ -7,7 +7,7 @@ const root = () => {
     <main className="bg-[rgb(35,35,35,35)]">
       <BannerSection />
       <TVSection />
-      <DevicesSection />
+      {/* <DevicesSection /> */}
     </main>
   );
 };
