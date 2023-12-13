@@ -1,5 +1,8 @@
+import AppSection from "../components/AppSection";
 import BannerSection from "../components/BannerSection";
 import DevicesSection from "../components/DevicesSection";
+import KidSection from "../components/KidSection";
+import QuestionSection from "../components/QuestionSection";
 import TVSection from "../components/TVSection";
 
 const root = () => {
@@ -8,6 +11,9 @@ const root = () => {
       <BannerSection />
       <TVSection />
       <DevicesSection />
+      <KidSection />
+      <AppSection />
+      <QuestionSection />
     </main>
   );
 };
