@@ -1,8 +1,4 @@
-"use client";
-
 import { useNavigate } from "react-router-dom";
-// import TextInput from "../TextInput";
-// import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import { IoIosArrowForward } from "react-icons/io";
 
 import { useEffect, useState } from "react";
