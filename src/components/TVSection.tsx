@@ -15,14 +15,21 @@ const TVSection = () => {
         </div>
 
         <div className="relative mx-auto max-w-2xl">
-          <img className="relative z-[100] w-[55vw]" src="/tv.png" alt="" />
+          <img
+            className="relative z-[100] w-[55vw]"
+            src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+            alt=""
+          />
           <video
             className="absolute left-[13%] top-[21%] w-[73%]"
             autoPlay
             muted
             loop
           >
-            <source src="/video-tv.m4v" type="video/webm" />
+            <source
+              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v"
+              type="video/webm"
+            />
           </video>
         </div>
       </div>
