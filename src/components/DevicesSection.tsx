@@ -5,21 +5,14 @@ const DevicesSection = () => {
     <Container>
       <div className="mx-auto flex max-w-[1250px] flex-col  text-center md:flex-row md:items-center md:text-left ">
         <div className="relative mx-auto w-[45vw]">
-          <img
-            className="relative z-[10] w-full"
-            src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png"
-            alt=""
-          />
+          <img className="relative z-[10] w-full" src="/devices.png" alt="" />
           <video
             className="absolute left-[18%] top-[11%]  h-[48%]"
             autoPlay
             muted
             loop
           >
-            <source
-              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
-              type="video/webm"
-            />
+            <source src="/video-devices.m4v" type="video/webm" />
           </video>
         </div>
 
