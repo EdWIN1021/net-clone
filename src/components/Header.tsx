@@ -1,5 +1,3 @@
-// import DropDown from "../DropDown";
-
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import DropDown from "../ui/DropDown";
@@ -15,7 +13,12 @@ const Header = () => {
 
       <DropDown variant="transparent" />
 
-      <Button onClick={() => navigate("/login")}>Sign In</Button>
+      <Button
+        className="px-4 py-1 text-sm font-medium"
+        onClick={() => navigate("/signin")}
+      >
+        Sign In
+      </Button>
     </div>
   );
 };

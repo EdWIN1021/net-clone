@@ -1,12 +1,20 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
+  className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children }) => {
+const Button: React.FC<ButtonProps> = ({ children, className, ...rest }) => {
   return (
-    <button className="whitespace-nowrap rounded bg-[rgb(229,9,20)] text-white hover:bg-[rgb(193,17,25)] active:bg-[rgb(153,22,29)] px-4 py-1 text-sm font-medium">
+    <button
+      {...rest}
+      className={twMerge(
+        "whitespace-nowrap text-white rounded bg-[rgb(229,9,20)] hover:bg-[rgb(193,17,25)] active:bg-[rgb(153,22,29)]",
+        className
+      )}
+    >
       {children}
     </button>
   );
