@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 import { themoviedb } from "../api/themoviedb";
+import { Movie } from "../types";
 
-interface Movie {
-  id: number;
-  title: string;
-  overview: string;
-  backdrop_path: string;
-  poster_path: string;
-}
-
-const useNetflix = () => {
+const useFetch = (url: string) => {
   const [data, setData] = useState<Movie[] | []>([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,11 +10,7 @@ const useNetflix = () => {
     (async () => {
       setLoading(true);
       try {
-        const res = await themoviedb.get(
-          `/discover/movie?api_key=${
-            import.meta.env.VITE_API_KEY
-          }&with_networks=213&language=en-US`
-        );
+        const res = await themoviedb.get(url);
 
         if (res.status === 200) {
           setData(res.data.results);
@@ -32,9 +21,9 @@ const useNetflix = () => {
         setLoading(false);
       }
     })();
-  }, []);
+  }, [url]);
 
   return { data, loading };
 };
 
-export default useNetflix;
+export default useFetch;

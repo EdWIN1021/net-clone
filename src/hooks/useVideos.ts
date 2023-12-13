@@ -14,11 +14,7 @@ const useVideos = (id: number) => {
       (async () => {
         setLoading(true);
         try {
-          const res = await themoviedb.get(
-            `/movie/${id}/videos?api_key=${
-              import.meta.env.VITE_API_KEY
-            }&language=en-US`
-          );
+          const res = await themoviedb.get(`/movie/${id}/videos`);
 
           if (res.status === 200) {
             setData(res.data.results);

@@ -2,13 +2,15 @@ import { FaPlay } from "react-icons/fa";
 import { PiWarningCircle } from "react-icons/pi";
 
 import { useMemo } from "react";
-import useNetflix from "../hooks/useNetflix";
+import useFetch from "../hooks/useFetch";
 import useVideos from "../hooks/useVideos";
 import Skeleton from "react-loading-skeleton";
 import IconButton from "../ui/IconButton";
 
 const Banner = () => {
-  const { data: movies, loading } = useNetflix();
+  const { data: movies, loading } = useFetch(
+    "discover/movie?with_networks=213"
+  );
 
   const movie = useMemo(
     () => movies[Number((Math.random() * 20).toFixed(0))],
