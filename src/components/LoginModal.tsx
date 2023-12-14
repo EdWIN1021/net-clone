@@ -1,16 +1,36 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextInput from "../ui/TextInput";
 import Button from "../ui/Button";
+import { toast } from "react-toastify";
+import { supabase } from "../lib/supabase";
 
 const LoginModal = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    // signIn(email, password);
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      toast.error(error?.message, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else if (data) {
+      navigate("/browse");
+    }
   };
 
   return (
@@ -28,6 +48,7 @@ const LoginModal = () => {
           id="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
       </div>
       <div className="mt-4">
@@ -38,6 +59,7 @@ const LoginModal = () => {
           id="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
       </div>
 

@@ -13,8 +13,6 @@ const Row = ({
 }) => {
   const { data, loading } = useFetch(url);
 
-  console.log(data);
-
   return (
     <div className="my-[3vw] text-[1.4vw] leading-[1.25vw] text-white">
       <h2 className="my-6 font-medium">{title}</h2>

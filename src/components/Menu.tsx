@@ -1,12 +1,13 @@
 import React, { Dispatch, SetStateAction } from "react";
-// import { AuthContext } from "@/providers/AuthProvider";
 import { FaRegUserCircle } from "react-icons/fa";
 
 import { FaRegEdit } from "react-icons/fa";
+import { supabase } from "../lib/supabase";
+import { useNavigate } from "react-router-dom";
 const Menu: React.FC<{ toggle: Dispatch<SetStateAction<boolean>> }> = ({
   toggle,
 }) => {
-  //   const { signOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   return (
     <div
@@ -27,7 +28,10 @@ const Menu: React.FC<{ toggle: Dispatch<SetStateAction<boolean>> }> = ({
 
       <button
         className="mt-2 w-full border-t border-[rgba(255,255,255,0.15)] px-5 py-4"
-        // onClick={signOut}
+        onClick={async () => {
+          await supabase.auth.signOut();
+          navigate("/");
+        }}
       >
         Sign out of Netflix
       </button>
